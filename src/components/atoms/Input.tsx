@@ -1,59 +1,72 @@
 import styled from "styled-components";
 import { HTMLInputTypeAttribute } from "react";
 
-const Style = styled.input({
-  width: "100%",
-  height: "40px",
+export type tinputSize = "SMALL" | "MEDIUM" | "LARGE";
 
-  fontSize: "14px",
+type styledProps = {
+  color: string;
+  bgColor: string;
+  size: tinputSize;
+};
 
-  color: "#FFFFFF",
-  background: "#000000",
+const Style = styled.input(
+  {
+    height: "40px",
 
-  "&:focus": {
-    caretColor: "#2F7AEB",
-    border: "1px solid #2F7AEB",
-    outline: "none"
+    fontSize: "14px",
+
+    color: "#FFFFFF",
+    background: "#000000",
+
+    "&:focus": {
+      caretColor: "#2F7AEB",
+      border: "1px solid #2F7AEB",
+      outline: "none",
+    },
+
+    "&::-webkit-outer-spin-button": {},
+    "&::-webkit-inner-spin-button": {
+      WebkitAppearance: "none",
+      mamrgin: "0",
+    },
   },
-
-  "&::-webkit-outer-spin-button": {},
-  "&::-webkit-inner-spin-button": {
-    WebkitAppearance: "none",
-    mamrgin: "0"
-  }
-})
-
-export const size = {
-  SMALL: 'SMALL',
-  MEDIUM: 'MEDIUM',
-  LARGE: 'LARGE',
-}
+  ({ color, bgColor, size }: styledProps) => ({
+    color: color,
+    background: bgColor,
+    width: `${
+      size === "SMALL" ? "120px" : size === "MEDIUM" ? "160px" : "320px"
+    }`,
+  })
+);
 
 type Props = {
   color: string;
   bgColor: string;
-  size,
-  className,
+  size: tinputSize;
+  className: string;
   placeholder: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Input = ({
-  color = 'black',
-  bgColor = 'white',
-  size = 
+  color = "black",
+  bgColor = "white",
+  size,
+  className,
   placeholder,
   value,
   onChange,
-}: Props)=> {
+}: Props) => {
   return (
     <Style
-      onChange={onChange}
-      type={type}
+      color={color}
+      bgColor={bgColor}
+      size={size}
+      className={className}
       placeholder={placeholder}
       value={value}
-      theme={theme}
+      onChange={onChange}
     ></Style>
   );
 };
