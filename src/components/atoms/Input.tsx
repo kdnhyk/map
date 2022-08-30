@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import styled from "styled-components";
-import { HTMLInputTypeAttribute } from "react";
 
 export type tinputSize = "SMALL" | "MEDIUM" | "LARGE";
 
@@ -12,12 +12,8 @@ type styledProps = {
 const Style = styled.input(
   {
     height: "40px",
-
     fontSize: "14px",
-
-    color: "#FFFFFF",
-    background: "#000000",
-
+    // focus시 파란색
     "&:focus": {
       caretColor: "#2F7AEB",
       border: "1px solid #2F7AEB",
@@ -31,11 +27,12 @@ const Style = styled.input(
     },
   },
   ({ color, bgColor, size }: styledProps) => ({
-    color: color,
-    background: bgColor,
+    color: `${color}`,
+    background: `${bgColor}`,
     width: `${
       size === "SMALL" ? "120px" : size === "MEDIUM" ? "160px" : "320px"
     }`,
+    outline: "none",
   })
 );
 
@@ -45,30 +42,29 @@ type Props = {
   size: tinputSize;
   className: string;
   placeholder: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Input = ({
+export default function Input({
   color = "black",
   bgColor = "white",
   size,
   className,
   placeholder,
-  value,
-  onChange,
-}: Props) => {
+}: Props) {
+  const [value, setValue] = useState("");
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
   return (
     <Style
-      color={color}
-      bgColor={bgColor}
-      size={size}
-      className={className}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
+    // color={color}
+    // bgColor={bgColor}
+    // size={size}
+    // className={className}
+    // placeholder={placeholder}
+    // value={value}
+    // onChange={onChange}
     ></Style>
   );
-};
-
-export default Input;
+}
