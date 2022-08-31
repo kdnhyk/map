@@ -9,7 +9,7 @@ type StyleProps = {
   width: widthSize;
 };
 
-const ButtonBlock = styled.button<StyleProps>`
+const TitleBlock = styled.h1<StyleProps>`
   height: ${({ height }) =>
     height === "SMALL"
       ? "20px"
@@ -35,16 +35,16 @@ const ButtonBlock = styled.button<StyleProps>`
   border-radius: 2px;
 `;
 
-export type tButton = {
+export type tTitle = {
   children: string;
   height: heightSize;
   width: widthSize;
 };
 
-export default function Button({ children, height, width }: tButton) {
+export default function Title({ children, height, width }: tTitle) {
   return (
-    <ButtonBlock height={height} width={width}>
+    <TitleBlock height={height} width={width}>
       {children}
-    </ButtonBlock>
+    </TitleBlock>
   );
 }

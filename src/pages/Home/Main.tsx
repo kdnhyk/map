@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SearchBar from "../../components/Molecules/SearchBar";
+import Item from "../../components/Organisms/Item";
 
 const MainBlock = styled.div`
   height: 100%;
@@ -22,7 +23,9 @@ export default function Main() {
         <div className="SearchArea">
           <SearchBar />
         </div>
-        <div className="ListArea"></div>
+        <div className="ListArea">
+          <Item />
+        </div>
       </div>
       <div className="Map"></div>
     </MainBlock>

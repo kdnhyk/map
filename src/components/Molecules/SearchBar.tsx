@@ -1,5 +1,6 @@
-import Input from "../Atoms/Input";
 import styled from "styled-components";
+import Input from "../Atoms/Input";
+import Button, { tButton } from "../Atoms/Button";
 
 const SearchBarBlock = styled.div`
   height: 80px;
@@ -10,6 +11,7 @@ const SearchBarBlock = styled.div`
 
   .SearchBarWrapper {
     background: white;
+    margin-bottom: 15px;
 
     display: flex;
     flex-direction: row;
@@ -55,6 +57,11 @@ export default function SearchBar({}) {
           </svg>
         </div>
         <Input></Input>
+      </div>
+      <div className="TagsWrapper">
+        <Button height="SMALL" width="FIT_CONTENT">
+          음식
+        </Button>
       </div>
     </SearchBarBlock>
   );
