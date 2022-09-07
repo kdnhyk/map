@@ -33,17 +33,34 @@ const ButtonBlock = styled.button<StyleProps>`
 
   border: none;
   border-radius: 2px;
+
+  &:hover {
+    background: lightgray;
+  }
 `;
 
 export type tButton = {
+  className: string;
   children: string;
   height: heightSize;
   width: widthSize;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-export default function Button({ children, height, width }: tButton) {
+export default function Button({
+  className,
+  children,
+  height,
+  width,
+  onClick,
+}: tButton) {
   return (
-    <ButtonBlock height={height} width={width}>
+    <ButtonBlock
+      className={className}
+      height={height}
+      width={width}
+      onClick={onClick}
+    >
       {children}
     </ButtonBlock>
   );

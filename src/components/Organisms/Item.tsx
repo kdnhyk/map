@@ -1,62 +1,77 @@
+import { useState } from "react";
 import styled from "styled-components";
+import ItemExtension from "./SpotExtension";
 
 const ItemBlock = styled.div`
-  height: 220px;
-  width: 440px;
+  height: 200px;
+  width: 400px;
 
-  padding: 15px 20px;
+  display: flex;
+  flex-direction: row;
   box-sizing: border-box;
-  .TitleArea {
-    height: 45px;
-
-    border-bottom: 1px solid grey;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    h2 {
-      margin: 0px 15px 0px 0px;
-    }
-    h3 {
-      height: 16px;
-      margin: 0;
-      color: grey;
-    }
+  .ImgArea {
   }
-  .ImgSliderArea {
-    margin-top: 15px;
+  .InfoArea {
+    width: 200px;
+    height: 200px;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    .TitleArea {
+      height: fit-content;
+
+      border-bottom: 1px solid grey;
+
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      .ID {
+        height: 16px;
+        margin: 0;
+        color: grey;
+      }
+      .Title {
+        margin: 0px 15px 0px 0px;
+      }
+    }
   }
 `;
 
 type tItem = {
   title: string;
   type: string;
+  onClickItem: () => {};
 };
 
-export default function Item({}) {
+export default function Item() {
+  const [isExtension, setIsExtension] = useState(false);
+  const goExtention = () => {
+    setIsExtension(true);
+  };
+  const goBack = () => {
+    setIsExtension(false);
+  };
+
   return (
     <ItemBlock className="Item">
-      <div className="TitleArea">
-        <h2 className="Title">GolMok Cafe</h2>
-        <h3 className="Type">cafe</h3>
-      </div>
-      <div className="InfoArea"></div>
-      <div className="ImgSliderArea">
+      <div className="ImgArea">
         <svg
-          width="400"
-          height="150"
-          viewBox="0 0 400 150"
+          width="200"
+          height="200"
+          viewBox="0 0 200 200"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M0 0H400V150H0V0Z" fill="#FFD6D6" />
-          <path
-            d="M0 12C0 5.37258 5.37258 0 12 0H150V150H12C5.37258 150 0 144.627 0 138V12Z"
-            fill="#FF8888"
-          />
-          <path d="M150 0H300V150H150V0Z" fill="#A7BAFF" />
-          <path d="M300 0H400V150H300V0Z" fill="#A9FFA7" />
+          <path d="M0 0H200V200H0V0Z" fill="#FF8888" />
         </svg>
+      </div>
+      <div className="InfoArea">
+        <div className="TitleArea" onClick={goExtention}>
+          <h3 className="ID">@iemsup</h3>
+          <h2 className="Title">GolMok Cafe with golmok</h2>
+        </div>
+        <div className="DescriptionArea">
+          맛있는 커피, 갓 구운 베이커리와 루프탑까지
+        </div>
       </div>
     </ItemBlock>
   );

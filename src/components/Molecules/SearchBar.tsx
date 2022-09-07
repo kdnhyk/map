@@ -56,12 +56,7 @@ export default function SearchBar({}) {
             />
           </svg>
         </div>
-        <Input></Input>
-      </div>
-      <div className="TagsWrapper">
-        <Button height="SMALL" width="FIT_CONTENT">
-          음식
-        </Button>
+        <Input width="320px" type="search"></Input>
       </div>
     </SearchBarBlock>
   );

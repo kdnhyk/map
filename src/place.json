@@ -1,0 +1,54 @@
+{
+  "name": "places",
+  "places": [
+    {
+      "id": "0",
+      "title": "myHome",
+      "type": "food",
+      "writings": [
+        {
+          "ID": "string",
+          "data": "number",
+          "title": "string",
+          "text": "i dont know",
+          "imgSource": ["", "", ""]
+        },
+        {
+          "ID": "user id",
+          "data": "number",
+          "title": "string",
+          "text": "i dont know",
+          "imgSource": ["", "", ""]
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "title": "mycafe",
+      "type": "cafe",
+      "writings": [
+        {
+          "ID": "string",
+          "data": "number",
+          "title": "string",
+          "text": "i dont know",
+          "imgSource": ["", "", ""]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "myShop",
+      "type": "shop",
+      "writings": [
+        {
+          "ID": "string",
+          "data": "number",
+          "title": "string",
+          "text": "i dont know",
+          "imgSource": ["", "", ""]
+        }
+      ]
+    }
+  ]
+}
