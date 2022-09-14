@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 
 export type tSpot = {
@@ -15,12 +16,18 @@ export type tSpot = {
 };
 
 export default function useSpots() {
-  const getSpots = async () => {
-    const { data } = await axios.get("/spots.json");
-    return data;
-  };
-  const spots = useQuery("spots", getSpots).data;
-  console.log(spots);
+  const [spots, setSpots] = useState<tSpot[]>();
+  const [loading, setLoading] = useState(true);
 
-  return spots;
+  // const getSpots = async () => {
+  //   const { data } = await axios.get("/spots.json");
+  //   return data;
+  // };
+
+  axios.get("/spots.json").then(function (response) {
+    console.log(response.data.spots);
+    return response.data.spots;
+  });
+
+  // const { data, isLoading, isError, error } = useQuery("spots", getSpots);
 }
