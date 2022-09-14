@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import SpotExtension from "./SpotExtension";
 import ImgSlider from "../Molecules/ImgSlider";
-import usePlaces from "../../hooks/usePlaces";
+import { tSpot } from "../../hooks/useSpots";
 
 const SpotBlock = styled.div`
   height: 220px;
@@ -33,19 +33,11 @@ const SpotBlock = styled.div`
   }
 `;
 
-type tSpot = {
-  title: string;
-  type: string;
-  item: {
-    id: number;
-    ID: number;
-    title: string;
-    // 글은 차후에 추가
-  }[];
-  onClickSpot: () => {};
+type SpotProps = {
+  spot: tSpot;
 };
 
-export default function Spot() {
+export default function Spot({ spot }: SpotProps) {
   const [isExtension, setIsExtension] = useState(false);
   const goExtention = () => {
     setIsExtension(true);
@@ -53,8 +45,6 @@ export default function Spot() {
   const goBack = () => {
     setIsExtension(false);
   };
-
-  usePlaces();
 
   return (
     <>
