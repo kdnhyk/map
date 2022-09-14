@@ -1,3 +1,3 @@
 # GolMok
 
-첫번째 웹 프로젝트
+URL: https://golmok-754ee.web.app
